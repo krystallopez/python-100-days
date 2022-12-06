@@ -31,7 +31,7 @@ direction = input(
     "You are at a cross road. Where do you want to go? Type 'left' or 'right'\n")
 if direction == "left":
     boat_or_swim = input(
-        "You come to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat. Type 'swim' to swim across").lower()
+        "You come to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat. Type 'swim' to swim across \n").lower()
     if boat_or_swim == "wait":
         color = input(
             "You arrive at the island unharmed. There is a house with 3 doors. One red,     one yellow, and one blue. which color do you choose? ").lower()
@@ -44,7 +44,7 @@ if direction == "left":
         else:
             print("Sorry, game over. You walked into a room full of beasts.")
     else:
-        print("Sorry, game over! You drowned from swin=mming in deep water.")
+        print("Sorry, game over! You drowned from swimming in deep water.")
 else:
     print("Sorry. Game Over. You walked into a pit of snakes")
 
