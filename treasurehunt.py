@@ -27,39 +27,43 @@ print("Your mission is to find the treasure.")
 
 # Write your code below this line 👇
 
-# direction = input(
-#     "You are at a cross road. Where do you want to go? Type 'left' or 'right'\n")
-# if direction == "left".lower():
-#     boat_or_swim = print(input(
-#         "You come to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat. Type 'swim' to swim across"))
-#     if boat_or_swim == "wait".lower():
-#         color = print(input(
-#             "You arrive at the island unharmed. There is a house with 3 doors. One red,     one yellow, and one blue. which color do you choose? "))
-#         if color == "yellow".lower():
-#             print("You did it! You found the treasure you win!")
-#         else:
-#             print("Sorry, game over. You walked into a room full of beasts.")
-#     else:
-#         print("Sorry, game over! You drowned from swin=mming in deep water.")
-# else:
-#     print("Sorry. Game Over. You walked into a pit of snakes")
-
 direction = input(
     "You are at a cross road. Where do you want to go? Type 'left' or 'right'\n")
-
 if direction == "left":
-    wait_or_swim = input(
-        "You come to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat. Type 'swim' to swim accross.\n").lower()
-    if wait_or_swim == "wait":
+    boat_or_swim = input(
+        "You come to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat. Type 'swim' to swim across").lower()
+    if boat_or_swim == "wait":
         color = input(
-            "You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow, and one blue. which color do you choose? \n").lower()
+            "You arrive at the island unharmed. There is a house with 3 doors. One red,     one yellow, and one blue. which color do you choose? ").lower()
         if color == "red":
-            print("Sorry, game over. You walked into a room full of black widows")
+          print("YOU LOSE!")
         elif color == "yellow":
-            print("You've done it! You found the treasure you win!")
+            print("You did it! You found the treasure you win!")
         elif color == "blue":
-            print("Oof. GAME OVER! You went into a room full of hungry lions")
+          print("You lost!")
         else:
-            print("That door doesn't exist, pick either, red, yellow, or blue.")
+            print("Sorry, game over. You walked into a room full of beasts.")
+    else:
+        print("Sorry, game over! You drowned from swin=mming in deep water.")
 else:
-    print("Sorry, kid. You fell into a pit of snakes. Better luck next time.")
+    print("Sorry. Game Over. You walked into a pit of snakes")
+
+# direction = input(
+#     "You are at a cross road. Where do you want to go? Type 'left' or 'right'\n")
+
+# if direction == "left":
+#     wait_or_swim = input(
+#         "You come to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat. Type 'swim' to swim accross.\n").lower()
+#     if wait_or_swim == "wait":
+#         color = input(
+#             "You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow, and one blue. which color do you choose? \n").lower()
+#         if color == "red":
+#             print("Sorry, game over. You walked into a room full of black widows")
+#         elif color == "yellow":
+#             print("You've done it! You found the treasure you win!")
+#         elif color == "blue":
+#             print("Oof. GAME OVER! You went into a room full of hungry lions")
+#         else:
+#             print("That door doesn't exist, pick either, red, yellow, or blue.")
+# else:
+#     print("Sorry, kid. You fell into a pit of snakes. Better luck next time.")
