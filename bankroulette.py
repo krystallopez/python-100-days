@@ -1,4 +1,5 @@
 import random
+# Write a program that will randomly pick the name of person that will pay the bill, you cannot use the choice function
 
 # Split string method
 # names_string = input("Give me everybody's names, separated by a comma. ")
@@ -34,4 +35,8 @@ pay_person = names[random_choice] # This will correspond with the index of the l
 
 print(f"{pay_person} is going to buy the meal today!")
 
+
+# You can also use the choice() function and get the same outcome by writing the code as follows:
+# pay_person = random.choice(names)
+# print(pay_person + "is going to buy the meal today!")
 
