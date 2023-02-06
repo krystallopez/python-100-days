@@ -8,17 +8,15 @@ shift = int(input("Type the shift number:\n"))
 
 def caesar(start_text, shift_amount, cipher_direction):
     end_text = ""
+    if cipher_direction == "decode":
+            shift_amount *= -1
     for letter in start_text:
          position = alphabet.index(letter)
-         if cipher_direction == "decode":
-            shift_amount *= -1
          new_position = position + shift_amount
          end_text += alphabet[new_position]
     print(f"The {cipher_direction}d text is {end_text}")
 
-    
-
-caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+    caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
 
 
 # To make this code look a bit cleaner, we are going to combine the decrypt and encrypt functions into one function called caesar(). We will get rid of the if conditionals and rework our code bit so that we can get it looking much cleaner.
@@ -31,4 +29,6 @@ caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
 
 # The reason this is an easier way of doing this is because, let's say we had a shift amount of 5 and we wanted to encode our text, well the new position is obviously going to be the previous position plus five. It's exactly the same as subtraction, like so if the position is 12 and multiply the shift amount of 5 * -1, we get -5. When we add 12 + -5 we get 7! This is exactly the same as subtraction. 
 
-# Since we have gotten that squared away our next step will be tap into our end_text and to add it it by getting hold of the letter at the new position in the aplhabet. Once all of that is done, we can finally print the result. However we need to change our print statement to be a bit more dynamic. 
+# Since we have gotten that squared away our next step will be tap into our end_text and to add it it by getting hold of the letter at the new position in the aplhabet. Once all of that is done, we can finally print the result. However we need to change our print statement to be a bit more dynamic. So we interpolate our cipher_direction variable. 
+
+# But we have a problem with our logic with our if statement is off a bit. The if statement lives inside of the for loop, and for every letter in the start_text, the code will get executed, but everything outside of the loop does not get run. To solve this, we remove the if statement out of the for loop and place it before the for loop so that now, the conditional will come before the function of the user chooses decode. 
