@@ -1,44 +1,46 @@
-from art_cipher import logo
+from art_cipher import logo # Imports logo from art_cipher file 
 
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
             'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
+# decrypts or encrypts text based on whether or not user typed in "decode" or encode. Takes in start_text, shift_amount, and cipher_direction
 def caesar(start_text, shift_amount, cipher_direction):
     end_text = ""
     if cipher_direction == "decode":
         shift_amount *= -1
-    for char in start_text:
+    for char in start_text: # This for loop runs for each character in the start_text
         if char in alphabet:
             position = alphabet.index(char)
             new_position = position + shift_amount
             end_text += alphabet[new_position]
         else:
             end_text += char
-    print(f"The {cipher_direction}d text is {end_text}")
+    print(f"The {cipher_direction}d text is {end_text}") # This will print out the encoded/decoded text 
 
 
-print(logo)
+print(logo) # prints logo before input code runs
 
-should_end = False
-while not should_end:
+should_end = False 
+while not should_end: #while the program is still going, should_end is set to False 
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
 
-    shift = shift % 26
-    caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+    shift = shift % 26 # divides by 26 as many times as needed until we get a remainder, this happens if the user enters a shift amount greater than 26
+    caesar(start_text=text, shift_amount=shift, cipher_direction=direction) # Assigns the input values to the parameters within the function
 
+# This will restart the program if the user types in "yes" and stop it if they type in "no"
     restart = input(
         "Type 'yes' if you want to go again. Otherwise type 'no'.\n")
     if restart == "no":
         should_end = True
         print("Goodbye")
 
-# To make this code look a bit cleaner, we are going to combine the decrypt and encrypt functions into one function called caesar(). We will get rid of the if conditionals and rework our code bit so that we can get it looking much cleaner.
+# How this works:       
 
-# First, we are going to create our new function called caesar(). The function will take in 3 parameters: the text, the shift, and the direction. We call the text parameter start_text(since we could be passed the plain_text or the cipher_text). Then we will have shift_amount, and the last one will be called cipher_direction to differentiate it from the other direction variable that we have listed. You can see this all on line 8.
+# First, we are going to create our function called caesar() and create the alphabet list. The function will take in 3 parameters: the text, the shift, and the direction. We call the text parameter start_text(since we could be passed the plain_text or the cipher_text). Then we will have shift_amount, and the last one will be called cipher_direction to differentiate it from the other direction variable that we have listed. You can see this all on line 8.
 
 # Next, we can start to think about how we can combine the encrypt and decrypt functions together. We need a way of storing a piece of text, so we create a variable called end_text, as seen on line 9. This will be an empty string, then we have to loop through the text that we pass over. So, this is where we can create the for loop again. We create the position variable to grab the index of the each character that is in the start_text, this can be seen on line 13. Once we have that it will save the index of the letter to that variable. This will happen for each char. If the character is in the alphabet list then lines 14-16 will run. This will only occur if the user chooses "encode", if the user chooses "decode" then the if conditional will run prior to the function being called. 
 
